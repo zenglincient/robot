@@ -27,7 +27,7 @@ setInterval(() => {
     const lunchTime = '13:14'
     const dinnerTime = '18:19'
     const time = moment().utcOffset(480).format('HH:mm')
-    if ([lunchTime, dinnerT.includes(time)) {
+    if ([lunchTime, dinnerTime].includes(time)) {
         getIsWordDay().then(isWorkday => {
             if (isWorkday) {
                 console.log('吃饭了')
