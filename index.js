@@ -4,7 +4,7 @@ const axios = require('axios')
 
 // 获取是否是节假日
 const getIsWordDay = () => {
-    let today = moment().format('YYYYMMDD')
+    let today = moment().utcOffset(480).format('YYYYMMDD')
     return new Promise((resolve, reject) => {
         axios.get(`https://api.apihubs.cn/holiday/get?date=${today}`).then((res) => {
             if (res.data.code == 0) {
@@ -21,10 +21,12 @@ const getIsWordDay = () => {
 }
 
 
+console.log(moment().utcOffset(480).format('HH:mm'))
+
 setInterval(() => {
     const lunchTime = '13:14'
     const dinnerTime = '18:19'
-    const time = moment().format('HH:mm')
+    const time = moment().utcOffset(480).format('HH:mm')
     if ([lunchTime, dinnerTime].includes(time)) {
         getIsWordDay().then(isWorkday => {
             if (isWorkday) {
