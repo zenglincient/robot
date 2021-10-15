@@ -24,7 +24,7 @@ const getIsWordDay = () => {
 console.log(moment().utcOffset(480).format('HH:mm'))
 
 setInterval(() => {
-    const lunchTime = '13:14'
+    const lunchTime = '11:40'
     const dinnerTime = '18:19'
     const time = moment().utcOffset(480).format('HH:mm')
     if ([lunchTime, dinnerTime].includes(time)) {
