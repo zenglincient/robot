@@ -18,7 +18,7 @@ app.post('/api/sms', (req, res) => {
     })
     res.send()
 
-    axios.post('https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=d3c49d63-41cd-478a-830f-9e43e8836f03', {
+    axios.post(`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${req.body.secret}`, {
         msgtype: 'text',
         text: {
             content: req.body && JSON.stringify(req.body),
