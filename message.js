@@ -3,10 +3,16 @@ const express = require('express')
 const app = express()
 const axios = require('axios')
 
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.post('/api/sms', (req, res) => {
-    const { url, data } = req.body
+
     console.log('post 请求')
-    console.log(url, data)
+    console.log(req.body)
+    res.send('ok')
     // axios.post(url, data).then(response => {
     //     res.send(response.data)
     // })
